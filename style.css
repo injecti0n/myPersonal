@@ -86,3 +86,8 @@
         display: none;
     }
 }
+
+.jumbotron {
+    padding: 1rem 2rem;
+    background-color: rgba(233, 236, 239, 0) !important;
+}
