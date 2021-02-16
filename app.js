@@ -83,14 +83,17 @@ async function getStarred(){
 }
 
 async function getRepos(){
-  let res = await fetch('https://api.github.com/users/injecti0n/repos')
+  let res = await fetch('https://api.github.com/users/injecti0n/repos?per_page=1000')
   let data = res.json()
   return data
 }
 
+
+
 getStarred().then(res=>{
+
   res.forEach(repo=>{
-    console.log(repo)
+   // console.log(repo)
     starredList.innerHTML += `
     <li class="feed-item">
                 <span class="text">${repo.description} <a href="${repo.html_url}">“${repo.html_url}”</a></span>
@@ -101,8 +104,9 @@ getStarred().then(res=>{
 
 
 getRepos().then(res=>{
-  res.forEach(repo=>{
-    console.log(repo)
+  let data = res.sort((a, b) => b.updated_at - a.updated_at).reverse().slice(0,20)
+  data.forEach(repo=>{
+ //   console.log(repo)
     Repos.innerHTML += `
     <li class="feed-item">
                 <span class="text">${repo.name} <a href="${repo.html_url}">“${repo.html_url}”</a></span>
@@ -111,4 +115,3 @@ getRepos().then(res=>{
   })
 })
 
-//description,html_url
