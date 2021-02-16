@@ -1,3 +1,5 @@
+const starredList = document.querySelector('.starred')
+const Repos = document.querySelector('.repos')
 function randomValues() {
     var timeline = anime.timeline({
       duration: function() {
@@ -71,3 +73,42 @@ function randomValues() {
     loop: true,
     stroke:[.3, 1],
   });
+
+
+
+async function getStarred(){
+  let res = await fetch('https://api.github.com/users/injecti0n/starred')
+  let data = res.json()
+  return data
+}
+
+async function getRepos(){
+  let res = await fetch('https://api.github.com/users/injecti0n/repos')
+  let data = res.json()
+  return data
+}
+
+getStarred().then(res=>{
+  res.forEach(repo=>{
+    console.log(repo)
+    starredList.innerHTML += `
+    <li class="feed-item">
+                <span class="text">${repo.description} <a href="${repo.html_url}">“${repo.html_url}”</a></span>
+              </li>
+    `
+  })
+})
+
+
+getRepos().then(res=>{
+  res.forEach(repo=>{
+    console.log(repo)
+    Repos.innerHTML += `
+    <li class="feed-item">
+                <span class="text">${repo.name} <a href="${repo.html_url}">“${repo.html_url}”</a></span>
+              </li>
+    `
+  })
+})
+
+//description,html_url
