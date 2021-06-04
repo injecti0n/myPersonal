@@ -36,9 +36,13 @@ body {
 .container-fluid,
 .jumbotron {
     height: 100% !important;
-    background-image: url(linux.d484d634.jpg);
-    background-position: 50%;
+    /* background-image: url(linux.d484d634.jpg);
+    background-position: 50%; */
     position: absolute !important;
+}
+
+.jumbotron{
+    background: none !important;
 }
 
 img.pb-5.pt-4 {
