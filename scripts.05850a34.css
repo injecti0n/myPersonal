@@ -59,8 +59,8 @@ canvas {
     position: fixed !important
 }
 
-.jumbotron {
-    background-color: none !important
+.jumbotron{
+    background: transparent !important
 }
 
 @keyframes fade-in {
