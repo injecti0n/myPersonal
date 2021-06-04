@@ -38,11 +38,11 @@ body {
     height: 100% !important;
     /* background-image: url(linux.d484d634.jpg);
     background-position: 50%; */
-    position: absolute !important;
+    background: transparent !important
 }
 
 .jumbotron{
-    background: none !important;
+    background: transparent !important
 }
 
 img.pb-5.pt-4 {
